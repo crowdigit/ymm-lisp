@@ -1,5 +1,7 @@
-(defpackage ymm-lisp
-  (:use :cl))
-(in-package :ymm-lisp)
+(defpackage ymm
+  (:use :cl)
+  (:export :foo))
+(in-package :ymm)
 
-;; blah blah blah.
+(defun foo (n)
+  (1+ n))

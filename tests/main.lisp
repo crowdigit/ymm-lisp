@@ -1,11 +1,15 @@
-(defpackage ymm-lisp/tests/main
+(defpackage ymm/tests
   (:use :cl
-        :ymm-lisp
-        :rove))
-(in-package :ymm-lisp/tests/main)
+        :ymm
+        :fiveam))
+(in-package :ymm/tests)
 
-;; NOTE: To run this test file, execute `(asdf:test-system :ymm-lisp)' in your Lisp.
+;; NOTE: To run this test file, execute `(asdf:test-system :ymm)' in your Lisp.
 
-(deftest test-target-1
-  (testing "should (= 1 1) to be true"
-    (ok (= 1 1))))
+(def-suite ymm-test-suite
+           :description "Test suite for YMM")
+(in-suite ymm-test-suite)
+
+(test test-foo
+  "Test foo function"
+  (is (= '2 (foo 1))))
