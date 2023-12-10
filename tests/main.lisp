@@ -10,6 +10,9 @@
            :description "Test suite for YMM")
 (in-suite ymm-test-suite)
 
-(test test-foo
-  "Test foo function"
-  (is (= '2 (foo 1))))
+(test test-check-requirement-os
+  "Test CHECK-REQUIREMENT function. YMM supports Linux only"
+  (is-true (check-requirement "Linux"))
+  (signals ymm/not-supported-platform (check-requirement "Windows"))
+  (signals ymm/not-supported-platform (check-requirement "Windows NT"))
+  (signals ymm/not-supported-platform (check-requirement "Blah blah blah...")))
