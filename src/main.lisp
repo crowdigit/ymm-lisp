@@ -25,11 +25,16 @@
                      (ymm/not-supported-platform-os-name condition)))))
 
 (defun check-os (os-name)
-  "Check YMM requirement. Returns all requirements are met. Signals condition
-otherwise"
+  "Check YMM requirement. Returns all requirements are met. Signals YMM/NOT-SUPPORTED-PLATFORM if not."
   (if (string/= "Linux" os-name)
       (error 'ymm/not-supported-platform :os-name os-name))
   t)
 
 (defun check-executable (command)
-  ())
+  "Checks if given command is available. Signals YMM/EXECUTABLE-NOT-FOUND if not available.
+  This function depends on Linux specific command `command`."
+  (let ((result (nth-value 2 (uiop:run-program `("bash" "-c" ,command)
+                                               :ignore-error-status t))))
+    (if (equal result 0)
+        t
+        (error 'ymm/executable-not-found :executable-name command))))
