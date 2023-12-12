@@ -2,6 +2,7 @@
 
 (defparameter *ytdl* "yt-dlp")
 (defparameter *jq* "jq")
+
 (defun check-os (os-name)
   "Check YMM requirement. Returns all requirements are met. Signals YMM/NOT-SUPPORTED-PLATFORM if not."
   (if (string/= "Linux" os-name)

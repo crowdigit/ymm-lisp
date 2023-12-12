@@ -7,7 +7,8 @@
                         :components
                         ((:file "package")
                          (:file "main")
-                         (:file "condition"))))
+                         (:file "condition")
+                         (:file "ytdl"))))
   :description ""
   :in-order-to ((test-op (test-op "ymm/tests"))))
 
