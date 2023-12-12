@@ -1,5 +1,7 @@
 (in-package :ymm)
 
+(defparameter *ytdl* "yt-dlp")
+(defparameter *jq* "jq")
 (defun check-os (os-name)
   "Check YMM requirement. Returns all requirements are met. Signals YMM/NOT-SUPPORTED-PLATFORM if not."
   (if (string/= "Linux" os-name)
@@ -18,5 +20,5 @@
 
 (defun main ()
   (check-os "Linux")
-  (check-executable "jaq")
-  (check-executable "yt-dlp"))
+  (check-executable *jq*)
+  (check-executable *ytdl*))
