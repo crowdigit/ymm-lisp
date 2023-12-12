@@ -18,3 +18,13 @@
              (format stream "Not supported platform detected: ~a"
                      (ymm/not-supported-platform-os-name condition)))))
 
+(define-condition ymm/pure-abstract-function-called
+  (condition)
+  ((class-name :initarg :class-name
+               :reader ymm/pure-abstract-function-called-class-name)
+   (method-name :initarg :method-name
+                :reader ymm/pure-abstract-function-called-method-name))
+  (:report (lambda (condition stream)
+             (format stream "Pure abstract method called: ~a.~a"
+                     (ymm/pure-abstract-function-called-class-name condition)
+                     (ymm/pure-abstract-function-called-method-name condition)))))

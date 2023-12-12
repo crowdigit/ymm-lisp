@@ -4,4 +4,5 @@
            #:check-executable
            #:ymm/error
            #:ymm/executable-not-found
-           #:ymm/not-supported-platform))
+           #:ymm/not-supported-platform
+           #:ymm/ymm/pure-abstract-function-called))
