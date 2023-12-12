@@ -1,9 +1,3 @@
-(defpackage ymm
-  (:use :cl)
-  (:export #:check-os
-           #:check-executable
-           #:ymm/not-supported-platform
-           #:ymm/executable-not-found))
 (in-package :ymm)
 
 (define-condition ymm/error (condition) ())
@@ -17,7 +11,7 @@
                            (ymm/executable-not-found-executable-name condition)))))
 
 (define-condition ymm/not-supported-platform
-  (condition)
+  (ymm/error)
   ((os-name :initarg :os-name
             :reader ymm/not-supported-platform-os-name))
   (:report (lambda (condition stream)
