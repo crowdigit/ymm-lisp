@@ -6,7 +6,8 @@
   :components ((:module "src"
                         :components
                         ((:file "package")
-                         (:file "main"))))
+                         (:file "main")
+                         (:file "condition"))))
   :description ""
   :in-order-to ((test-op (test-op "ymm/tests"))))
 
