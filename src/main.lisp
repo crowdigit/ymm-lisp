@@ -3,12 +3,6 @@
 (defparameter *ytdl* "yt-dlp")
 (defparameter *jq* "jq")
 
-(defun check-os (os-name)
-  "Check YMM requirement. Returns all requirements are met. Signals YMM/NOT-SUPPORTED-PLATFORM if not."
-  (if (string/= "Linux" os-name)
-      (error 'ymm/not-supported-platform :os-name os-name))
-  t)
-
 (defun check-executable (command)
   "Checks if given command is available. Signals YMM/EXECUTABLE-NOT-FOUND if not available.
   This function depends on Linux specific command `command`."
@@ -20,6 +14,5 @@
         (error 'ymm/executable-not-found :executable-name command))))
 
 (defun main ()
-  (check-os "Linux")
   (check-executable *jq*)
   (check-executable *ytdl*))
